@@ -24,7 +24,7 @@ def handle_request():
         print("\nRead Video ...")
         video_file = flask.request.files[file_id]
         data = np.frombuffer(video_file.read(), dtype=np.float64)
-        data /= 255.0
+        # data /= 255.0
         data = data[:, :, :, [2, 1, 0]]
         data = data.reshape((1, 60, 224, 224, 3))
         # print(data)
